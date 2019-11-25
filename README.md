@@ -20,3 +20,8 @@ OR
 * Get the repository called *AWWAEDS*
 
 ## link to it on Heroku
+
+## Known Bugs
+
+This app may not meet all the desired services as the user need but,
+It is still in Development and that will be soon resolved.
