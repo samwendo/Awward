@@ -60,3 +60,8 @@ This App is made with:
 * *Django*
 * *Bootstrap & css*
 * *html*
+
+## Support and contact details
+
+If you meet any issue, have questions, ideas or concerns;please contact me on
+*wendosam21@gmail.com* and any contribution to the code is welcomed and will be much appreciated.
