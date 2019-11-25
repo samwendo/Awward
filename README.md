@@ -25,3 +25,12 @@ OR
 
 This app may not meet all the desired services as the user need but,
 It is still in Development and that will be soon resolved.
+
+### Behavior
+
+**This program should handle:**
+1. Sign in to the app.
+2. Viewing posted projects and their details
+3. Rateing /reviewing other users' projects.
+4. Searching for projects
+5. Viewing your own profile page.
