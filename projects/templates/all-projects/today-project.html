@@ -3,13 +3,14 @@
 {{ block.super}}
 {% load bootstrap4 %}
 <div
+ 
+
   style="background-image:url('https://s2.best-wallpaper.net/wallpaper/3840x2160/1907/Red-rays-abstract-black-background_3840x2160.jpg'); background-repeat: no-repeat; background-size: cover;">
 
+  
   <div class="container">
-
     <div class="jumbotron" style="background-color:bisque;">
-      <!-- <div class="row"> -->
-
+      <div class="row">
         <h1 class='text-center'> Recent Projects</h1>
       </div>
       {%for images in images%}
@@ -30,38 +31,39 @@
 
         <hr style="width: 400px; margin-left: 0px">
         <div class="mt-4 border-t border-grey-light mx-4 py-4">
-
-          <form method="post" action="/rating/{{image.id}}" enctype="multipart/form-data">
-            <div class="container">
-              <!-- <div class="row"> -->
-                <!-- <div class="col-md-4"> -->
-                  {% csrf_token %}
-                  {% bootstrap_form form %}
-                </div>
-              </div>
-            
-            <input type="submit" class="btn btn-primary btn-sm" value="Submit">
-            <input type="hidden" name="next" value="{{next}}">
-          </form>
-
-          {% endautoescape %}
         </div>
-        {%endfor%}
-      </div>
-    </div>
 
-    </div>
-    {% for rating in image.rating.all %}
-    <div class="row">
-      <div class="col-md-1">
-        <p style=" font-weight: bold; "><a style="color: black" href="/"> {{comment.user}}</p>
+        <form method="post" action="/rating/{{image.id}}" enctype="multipart/form-data">
+          <div class="container">
+            <!-- <div class="row"> -->
+            <!-- <div class="col-md-4"> -->
+            {% csrf_token %}
+            {% bootstrap_form form %}
+          </div>
       </div>
-      <div class="col-md-4" style="margin-left: -25px">
-        <p>{{rating.rating}}</p>
-      </div>
+
+      <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+      <input type="hidden" name="next" value="{{next}}">
+      </form>
+
+      {% endautoescape %}
+
+      {%endfor%}
     </div>
-    {% endfor %}
   </div>
+
+</div>
+{% for rating in image.rating.all %}
+<div class="row">
+  <div class="col-md-1">
+    <p style=" font-weight: bold; "><a style="color: black" href="/"> {{comment.user}}</p>
+  </div>
+  <div class="col-md-4" style="margin-left: -25px">
+    <p>{{rating.rating}}</p>
+  </div>
+</div>
+{% endfor %}
+</div>
 </div>
 
 {% endblock %}
