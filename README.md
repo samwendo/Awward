@@ -52,3 +52,11 @@ It is still in Development and that will be soon resolved.
 |                                          |                                           | then click on the project you want       |
 | Log out                                  | Click on the LOGOUT button                | You will be logged out                   ||                                          |                                   |                                          |
 
+## Technologies Used
+
+This App is made with:
+* *postgresql*
+* *python3.6*
+* *Django*
+* *Bootstrap & css*
+* *html*
