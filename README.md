@@ -65,3 +65,10 @@ This App is made with:
 
 If you meet any issue, have questions, ideas or concerns;please contact me on
 *wendosam21@gmail.com* and any contribution to the code is welcomed and will be much appreciated.
+
+### Acknowledgments
+
+* *Moringa School Project*
+* *Technical Mentors*
+* *Fellow Students*
+
