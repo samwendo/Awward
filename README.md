@@ -72,3 +72,7 @@ If you meet any issue, have questions, ideas or concerns;please contact me on
 * *Technical Mentors*
 * *Fellow Students*
 
+### License & Copyright
+
+* **This project is licenced under the MIT license.**
+* **Copyright (c) 2019 SAMWENDO**
