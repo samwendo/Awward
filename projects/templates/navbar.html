@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/fontawesome.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://kit.fontawesome.com/yourcode.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top" style="background-color:darkcyan; padding:10px;" >
-    <div class="container-fluid">
-      <div class="navbar-header" >
-        <a class="navbar-brand" href="{% url 'projectsToday' %}" style="color:white;">Projects</a>
-      </div>
 
-      <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="{% url 'projectsToday' %}" style="color:white;"><i
+        class="fa fa-fw fa-home"></i>Projects</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+    {% if user.is_authenticated %}
 
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Project" name="project">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"> search<i class="glyphicon glyphicon-search"></i></button>
-            
-            </div>
-          </div>
-
-        </form>
-
-      </div>
-      <!-- search form end -->
-      <div class="col-sm-6 col-md-6">
-        {% if user.is_authenticated %}
-        <ul>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                      <span class="caret"></span>
-                  </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="{%url 'projectsToday'%}"><strong>Home</strong></a>
-              </li>
-              <li>
-                <a href="{%url 'new-project'%}"><strong>upload a Project</strong></a>
-              </li>
-              <li>
-                  <a href="{%url 'myProfile' user.id%}"><strong>View Profile</strong></a>
-                </li>
-              <li>
-                  <a href="{%url 'profile'%}"><strong>Add Profile</strong></a>
-                </li>
-              
-              <li>
-                <a href="/accounts/password/change"><strong>Change Password</strong></a>
-              </li>
-              <li>
-                <a href="/logout"><strong>Logout</strong></a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        {% else %}
-        <li>
-          <a class='btn btn-default' href="/accounts/login"><strong>Login</strong></a>
+    <div class="collapse navbar-collapse" id="navbarColor01" style="color: aliceblue;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{%url 'new-project'%}"> <i class="fas fa-cloud-upload-alt"></i> Upload<span
+              class="sr-only">(current)</span></a>
         </li>
 
-        {% endif %}
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'profile'%}"> <i class="far fa-plus-square"></i>Add Profile <span
+              class="sr-only">(new-project)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'myProfile' user.id%}"><i class="	far fa-dot-circle"></i>View Profile <span
+              class="sr-only">(profile)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/password/change"><i class="fas fa-pen"></i>Change Password</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/logout"> <i class="far fa-arrow-alt-circle-right"></i>Logout</a>
+        </li>
+      </ul>
+      {% else %}
+      <ul>
+        <li>
+          <a class='btn btn-default' href="/accounts/login"><i
+              class="far fa-arrow-alt-circle-left"></i><strong>Login</strong></a>
+        </li>
+      </ul>
+      {% endif %}
+      <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="project">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="	fas fa-search"></i> <i
+            class="glyphicon glyphicon-search"></i></button>
+      </form>
     </div>
   </nav>
 </body>
+
 </html>
