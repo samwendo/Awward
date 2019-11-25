@@ -1,0 +1,59 @@
+{%extends 'all-projects/base.html'%}
+{% block content %} 
+{{ block.super}}
+{% load bootstrap4 %}
+<div  style="background-image:url('https://s2.best-wallpaper.net/wallpaper/3840x2160/1907/Red-rays-abstract-black-background_3840x2160.jpg'); background-repeat: no-repeat; background-size: cover;">
+ <div class="container">
+    <div class="jumbotron" style="background-color:bisque;">
+      <div class="row">
+
+      <h1  class='text-center'> Recent Projects</h1> 
+    </div>
+    {%for images in images%}
+   
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
+      
+        <strong><h2 style="color:rgb(42, 151, 165); text-align: center;">{{images.title}}</h2></strong>
+      <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:250px; border-radius: 30px;" src="{{media.images.url}}"  class="img-responsive" alt="Image">
+      
+      {% autoescape on %}
+        <strong>Description: </strong>{{images.description|safe}}
+        <br>
+        <strong>Live site: </strong><a href="{{images.link|safe}}">{{images.link|safe}}</a>  
+        
+      
+      {% endautoescape %}
+    </div>
+{%endfor%}
+  </div>
+  <hr style="width: 400px; margin-left: 0px">
+  <div class="mt-4 border-t border-grey-light mx-4 py-4">
+    
+    <form method="post" action="/rating/{{image.id}}" enctype="multipart/form-data">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      </div>
+      </div>
+      </div>
+      <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+      <input type="hidden" name="next" value="{{next}}">
+    </form>
+
+  </div>
+  {% for rating in image.rating.all %}
+<div class="row">
+  <div class="col-md-1">
+    <p style=" font-weight: bold; "><a style="color: black" href="/"> {{comment.user}}</p>
+  </div>
+  <div class="col-md-4" style="margin-left: -25px">
+    <p>{{rating.rating}}</p>
+  </div>
+</div>
+{% endfor %}
+ </div>
+</div>
+
+{% endblock %}

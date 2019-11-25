@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top" style="background-color:darkcyan; padding:10px;" >
+    <div class="container-fluid">
+      <div class="navbar-header" >
+        <a class="navbar-brand" href="{% url 'projectsToday' %}" style="color:white;">Projects</a>
+      </div>
+
+      <!-- Adding a search form  -->
+      <div class="col-sm-4 col-md-4 navbar-right">
+
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Project" name="project">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"> search<i class="glyphicon glyphicon-search"></i></button>
+            
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      <!-- search form end -->
+      <div class="col-sm-6 col-md-6">
+        {% if user.is_authenticated %}
+        <ul>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                      <span class="caret"></span>
+                  </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="{%url 'projectsToday'%}"><strong>Home</strong></a>
+              </li>
+              <li>
+                <a href="{%url 'new-project'%}"><strong>upload a Project</strong></a>
+              </li>
+              <li>
+                  <a href="{%url 'myProfile' user.id%}"><strong>View Profile</strong></a>
+                </li>
+              <li>
+                  <a href="{%url 'profile'%}"><strong>Add Profile</strong></a>
+                </li>
+              
+              <li>
+                <a href="/accounts/password/change"><strong>Change Password</strong></a>
+              </li>
+              <li>
+                <a href="/logout"><strong>Logout</strong></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        {% else %}
+        <li>
+          <a class='btn btn-default' href="/accounts/login"><strong>Login</strong></a>
+        </li>
+
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

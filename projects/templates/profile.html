@@ -1,0 +1,38 @@
+{%extends 'all-projects/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+project html
+
+<body>
+    <div class = "container" style="padding-top:100px;">
+    <div class = "row"></div>
+    <div class = col-md-6>
+            <div >
+     
+                    <img src="{{profiles.profile_pic.url}}" alt="Image" style="border-radius:50px; width:400px;">
+                </div>
+              
+    </div>
+    <div class = col-md-6>
+     <h3 class="row" style="color:rgb(46, 54, 54);"><strong>{{profiles.first_name}}  {{profiles.last_name}}</strong></h3>
+     <div class="row" style="color:rgb(4, 31, 46);">
+     <h4 >{% autoescape on %}
+            <strong>Bio:</strong> {{profiles.bio| safe}}
+            <strong>Contact:</strong> {{profiles.contact_info| safe}}
+           {% endautoescape %}
+           <br>
+           <strong>Email:</strong> wendosam21w@gmail.com
+            
+        </h4>
+    </div>
+    <br>
+    
+</div>
+
+    </div>  
+</body>
+
+</html>
+{% endblock %}
