@@ -10,3 +10,5 @@ urlpatterns=[
     url(r'^rating/(\d+)', views.rating, name='rating'),
     url(r'^myProfile/(\d+)', views.myProfile, name='myProfile'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
